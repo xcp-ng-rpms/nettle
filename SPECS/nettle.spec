@@ -1,7 +1,7 @@
 %global package_speccommit 39d69af8869e33cfcd332d3f8b88cab941c9a27b
 %global usver 3.10
 %global xsver 2
-%global xsrel %{xsver}%{?xscount}%{?xshash}
+%global xsrel %{xsver}.1%{?xscount}%{?xshash}
 # Recent so-version, so we do not bump accidentally.
 %global nettle_so_ver 8
 %global hogweed_so_ver 6
@@ -27,6 +27,8 @@ BuildRequires:  gmp-devel, m4
 BuildRequires:	libtool, automake, autoconf, gettext-devel
 # Required to build libhogweed.so
 BuildRequires:	gmp-devel >= 6.1.0
+# Force dependency on api __gmpn_cnd_swap (used since nettle-3.6, this API was not present in gmp-6.0.0)
+Requires: gmp  >= 6.1.0
 %if %{with fips}
 BuildRequires:  fipscheck
 %endif
@@ -131,6 +133,9 @@ make check
 
 
 %changelog
+* Mon Jun 22 2026 Philippe Coval <philippe.coval@vates.tech> - 3.10-2.1
+- Add Requires on gmp version with __gmpn_cnd_swap
+
 * Tue Nov 11 2025 Lin Liu <lin.liu01@citrix.com> - 3.10-2
 - CP-310102: Build compatible with XS8 and specify gmp-devel version
 
