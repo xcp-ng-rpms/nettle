@@ -10,7 +10,7 @@
 
 Name:           nettle
 Version:        3.10
-Release: %{?xsrel}%{?dist}
+Release: %{?xsrel}~XCPNG2698.4%{?dist}
 Summary:        A low-level cryptographic library
 
 License:        LGPLv3+ or GPLv2+
