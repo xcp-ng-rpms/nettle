@@ -1,7 +1,7 @@
-%global package_speccommit 39d69af8869e33cfcd332d3f8b88cab941c9a27b
+%global package_speccommit 9db4120c424423b16ed2e5e1840ac4469e706c1c
 %global usver 3.10
-%global xsver 2
-%global xsrel %{xsver}%{?xscount}%{?xshash}
+%global xsver 3
+%global xsrel %{xsver}.1%{?xscount}%{?xshash}
 # Recent so-version, so we do not bump accidentally.
 %global nettle_so_ver 8
 %global hogweed_so_ver 6
@@ -133,6 +133,12 @@ make check
 
 
 %changelog
+* Wed Nov 04 2026 Philippe Coval <philippe.coval@vates.tech> - 3.10-3.1
+- Merge XS version that includes upstreamed fix made in 3.10-2.1
+- *** Upstream changelog ***
+  * Mon Jun 22 2026 Philippe Coval <philippe.coval@vates.tech> - 3.10-3
+  - Add Requires on gmp version with __gmpn_cnd_swap
+
 * Wed Jul 15 2026 Philippe Coval <philippe.coval@vates.tech> - 3.10-2.1
 - Add Requires on gmp version with __gmpn_cnd_swap
 
